@@ -1,0 +1,59 @@
+<html>
+<head>
+<script language="javascript">
+function verification(){
+    if(document.getElementById('ine').value == "" || document.getElementById('pnom').value == "" || document.getElementById('nom').value == "" || document.getElementById('age').value == "" || document.getElementById('genre').value == "" || document.getElementById('campus').value == "" || document.getElementById('speci').value == "" ){
+        alert ('Vous avez oublié de renseigner un champ obligatoir ou bien les mots de passe ne sont pas conformes !!!!');
+        return false;
+    }
+return true;
+}
+function chiffres(event) {
+	// Compatibilité IE / Firefox
+	if(!event&&window.event) {
+		event=window.event;
+	}
+	// IE
+	if((event.which < 48 || event.which > 57 )  &&  event.keyCode !=8  &&  event.keyCode !=9) {
+		event.returnValue = false;
+		event.cancelBubble = true;
+	}
+	// DOM
+	if( (event.which < 48 || event.which > 57 ) && event.keyCode !=8  && event.keyCode !=9) {
+		event.preventDefault();
+		event.stopPropagation();
+	}
+}
+</script>
+<title>Inscription</title>
+</head>
+<body background="img/beige135.JPG">
+<center><h1><font color="blue"> USSEIN MI </font></h1></center>
+<marquee><h3><font color="blue"> Enregistrement</font></h3></marquee>
+<FORM method="POST" action="insert.php" onsubmit='return verification();'>
+<table align ="center" width="495" height="338">
+<tr><td width="143"><font color="blue"><b>INE</b></font></td><td width="147">  <input type="text" name="Ine" id='ine'><font color="red">*</font></td></tr>
+  <tr><td width="143"><font color="blue"><b>Prenom</b></font></td><td width="147"><input type="text" name="Pnom" id='pnom'><font color="red">*</font></td></tr>
+   <tr><td width="143"><font color="blue"><b>Nom</b></font></td><td width="147">  <input type="text" name="Nom" id='nom'><font color="red">*</font></td></tr>
+ <tr><td width="143"><font color="blue"><b>Age</b></font></td> <td width="147"><input type="text" name="Age" id='age' onkeypress="chiffres(event)" maxlength="2"><font color="red">*</font> <font color="blue">ans</font></td></tr>
+<tr><td width="143"><font color="blue"><b>Genre</b></font></td><td width="147"> <tr><td>Homme<input type="radio" name="Genre" value="H" id='genre'></td></tr> <tr><td>FEMME<input type="radio" name="Genre" value="F" id='genre'></td></tr> <font color="red">*</font></td></tr>
+ <tr><td>Campus</td>
+ <td> <select name="Campus">
+       <option>Kaolack</option>
+       <option>Fatick</option>
+       <option>Kaffrine</option>
+       </select><font color="red">*</font></td></tr>
+   <tr><td width="143"><font color="blue"><b>Specialite</b></font></td><td> 
+   <select name="Speci">
+       <option>AgroTIC</option>
+       <option>MPI</option>
+       <option>Mathématiques</option>
+       <option>Informatique</option>
+          </select><font color="red">*</font></td></tr>  
+<tr><td><input type="submit" name="ok" value="OK"></td><td><input type="reset" name="an" value="Annuler"></td></tr>
+		  
+  </table>
+   </form>
+<h4><font color="red">*</font>  <font color="black">Zone de saisie obligatoire</font></h4>
+</body>
+</html>
